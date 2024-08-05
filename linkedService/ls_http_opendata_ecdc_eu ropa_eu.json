@@ -1,6 +1,5 @@
 {
 	"name": "ls_http_opendata_ecdc_eu ropa_eu",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"parameters": {
 			"SourceBaseURL": {
@@ -10,9 +9,10 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "@{linkedService().SourceBaseURL}",
-			"enableServerCertificateValidation": true,
+			"url": "https://fakestoreapi.com/",
+			"enableServerCertificateValidation": false,
 			"authenticationType": "Anonymous"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
