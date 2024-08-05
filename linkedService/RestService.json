@@ -1,17 +1,11 @@
 {
 	"name": "RestService",
 	"properties": {
-		"parameters": {
-			"BaseUrl": {
-				"type": "string",
-				"defaultValue": "https://fakestoreapi.com"
-			}
-		},
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "@{linkedService().BaseUrl}",
-			"enableServerCertificateValidation": true,
+			"url": "https://fakestoreapi.com/",
+			"enableServerCertificateValidation": false,
 			"authenticationType": "Anonymous"
 		}
 	},
