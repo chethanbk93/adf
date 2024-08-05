@@ -3,7 +3,8 @@
 	"properties": {
 		"parameters": {
 			"BaseUrl": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "https://fakestoreapi.com"
 			}
 		},
 		"annotations": [],
