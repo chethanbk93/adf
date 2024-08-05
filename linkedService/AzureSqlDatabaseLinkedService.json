@@ -1,0 +1,21 @@
+{
+	"name": "AzureSqlDatabaseLinkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "covidsrproject.database.windows.net",
+			"database": "Demo",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "Chethan_Admin",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIwMzhiYzIwOC1lYzBkLTQ0YmYtYWI4MS1iNjE0N2FiOTM1YjUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

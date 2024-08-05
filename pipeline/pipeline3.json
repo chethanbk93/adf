@@ -1,0 +1,139 @@
+{
+	"name": "pipeline3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Test",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var",
+					"value": {
+						"value": "@activity('Execute Pipeline1').output.pipelineReturnValue.vr",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1_copy1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable1_copy2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var2",
+					"value": {
+						"value": "@activity('Execute Pipeline1').output.pipelineReturnValue.vr2",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1_copy2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var1",
+					"value": {
+						"value": "@activity('Execute Pipeline1').output.pipelineReturnValue.vr1",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1_copy3",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable1_copy1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var3",
+					"value": {
+						"value": "@activity('Execute Pipeline1').output.pipelineReturnValue.vr3",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"var": {
+				"type": "String"
+			},
+			"var1": {
+				"type": "String"
+			},
+			"var2": {
+				"type": "Array"
+			},
+			"var3": {
+				"type": "Boolean"
+			}
+		},
+		"folder": {
+			"name": "Practical"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-07-28T15:49:14Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

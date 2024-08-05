@@ -1,0 +1,219 @@
+{
+	"name": "new",
+	"properties": {
+		"activities": [
+			{
+				"name": "Validation1",
+				"type": "Validation",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "ds_blob_gen1",
+						"type": "DatasetReference"
+					},
+					"timeout": "0.12:00:00",
+					"sleep": 10,
+					"childItems": true
+				}
+			},
+			{
+				"name": "variable_value",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Validation1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "exists",
+					"value": {
+						"value": "@activity('Validation1').output.exists",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "If_else",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "variable_value",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var",
+					"value": {
+						"value": "@if(equals(variables('exists'), true), 'yes', 'no')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "get_past_date",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "If_else",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "getPastTime",
+					"value": {
+						"value": "@getPastTime(5, 'Year','yyyy-MM-dd')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Validation1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "test",
+					"value": {
+						"value": "@activity('Validation1').output.childItems",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Validation1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "demo",
+					"value": {
+						"value": "@uriComponentToString('http%3A%2F%2Fcontoso.com')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable3",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Validation1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "demo",
+					"value": {
+						"value": "@uriComponent('https://contoso.com')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable4",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable3",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "setnew",
+					"value": {
+						"value": "@variables('demo')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"exists": {
+				"type": "Boolean"
+			},
+			"var": {
+				"type": "String"
+			},
+			"getPastTime": {
+				"type": "String"
+			},
+			"test": {
+				"type": "Array"
+			},
+			"demo": {
+				"type": "String"
+			},
+			"setnew": {
+				"type": "String"
+			},
+			"cityName": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Practical"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-07-30T11:42:52Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

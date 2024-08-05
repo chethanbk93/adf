@@ -1,0 +1,132 @@
+{
+	"name": "Test",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"wildcardFolderPath": "adf",
+							"wildcardFileName": "*.csv",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "FileSytemSouce",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DelimitedText4",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "vr",
+							"value": {
+								"type": "String",
+								"content": "this is demo"
+							}
+						},
+						{
+							"key": "vr1",
+							"value": {
+								"type": "Expression",
+								"content": "@utcnow()"
+							}
+						},
+						{
+							"key": "vr2",
+							"value": {
+								"type": "Array",
+								"content": [
+									{
+										"type": "String",
+										"content": "a"
+									},
+									{
+										"type": "String",
+										"content": "b"
+									},
+									{
+										"type": "String",
+										"content": "c"
+									}
+								]
+							}
+						},
+						{
+							"key": "vr3",
+							"value": {
+								"type": "Boolean",
+								"content": true
+							}
+						}
+					],
+					"setSystemVariable": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Practical"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-05T08:49:07Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

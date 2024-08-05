@@ -1,0 +1,11 @@
+{
+	"name": "ls_AzureKeyVault_secrate",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://formula2024dl.vault.azure.net/"
+		}
+	}
+}

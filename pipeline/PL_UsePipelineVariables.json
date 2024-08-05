@@ -1,0 +1,41 @@
+{
+	"name": "PL_UsePipelineVariables",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "cityName",
+					"value": {
+						"value": "@substring(pipeline().parameters.addressLine, add(indexof(pipeline().parameters.addressLine, 'City:'), 6), sub(sub(indexof(pipeline().parameters.addressLine, 'State:'), 2), add(indexof(pipeline().parameters.addressLine, 'City:'), 6)))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"addressLine": {
+				"type": "string",
+				"defaultValue": "Address: 221 M.G. Road Road. City: Kolkata. State: West Bengal"
+			}
+		},
+		"variables": {
+			"cityName": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Practical"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-07-30T11:42:51Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

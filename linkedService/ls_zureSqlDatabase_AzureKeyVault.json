@@ -1,0 +1,25 @@
+{
+	"name": "ls_zureSqlDatabase_AzureKeyVault",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "covidsrproject.database.windows.net",
+			"database": "Demo",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "Chethan_Admin",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_AzureKeyVault_secrate",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "Password",
+				"secretVersion": "a4f9046839fc4fe2b37c7328b58a40e6"
+			}
+		}
+	}
+}

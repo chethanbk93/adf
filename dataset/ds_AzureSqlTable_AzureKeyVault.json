@@ -1,0 +1,46 @@
+{
+	"name": "ds_AzureSqlTable_AzureKeyVault",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_zureSqlDatabase_AzureKeyVault",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "gender",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dob",
+				"type": "nvarchar"
+			},
+			{
+				"name": "occupation",
+				"type": "nvarchar"
+			},
+			{
+				"name": "work_exp",
+				"type": "nvarchar"
+			},
+			{
+				"name": "salary",
+				"type": "nvarchar"
+			},
+			{
+				"name": "own_house",
+				"type": "nvarchar"
+			},
+			{
+				"name": "children",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "employee"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
