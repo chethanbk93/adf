@@ -1,0 +1,20 @@
+{
+	"name": "pl_Git_Config",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait_Activity",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 30
+				}
+			}
+		],
+		"folder": {
+			"name": "Practical"
+		},
+		"annotations": []
+	}
+}
