@@ -1,17 +1,18 @@
 {
 	"name": "RestService",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"BaseUrl": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://fakestoreapi.com/products",
+			"url": "@{linkedService().BaseUrl}",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
-		},
-		"connectVia": {
-			"referenceName": "integrationRuntime1",
-			"type": "IntegrationRuntimeReference"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
