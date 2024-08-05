@@ -1,0 +1,90 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADFChethan1"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_Input_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_Output_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabaseLinkedService_password": {
+			"value": ""
+		},
+		"FileServer1_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"ls_ablob_covidreportingsa_connectionString": {
+			"value": ""
+		},
+		"ls_adls_covidreportingdl_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://teststorechethan.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage_Input_properties_typeProperties_url": {
+			"value": "https://teststorechethan.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage_Output_properties_typeProperties_url": {
+			"value": "https://teststorechethan.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabaseLinkedService_properties_typeProperties_server": {
+			"value": "covidsrproject.database.windows.net"
+		},
+		"AzureSqlDatabaseLinkedService_properties_typeProperties_database": {
+			"value": "Demo"
+		},
+		"AzureSqlDatabaseLinkedService_properties_typeProperties_userName": {
+			"value": "Chethan_Admin"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "C:\\Users\\cheth\\Desktop\\"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "Pavithra"
+		},
+		"RestService_properties_typeProperties_url": {
+			"value": "https://fakestoreapi.com/products"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "covidsrproject.database.windows.net"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "demo"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "Chethan_Admin"
+		},
+		"ls_AzureKeyVault_secrate_properties_typeProperties_baseUrl": {
+			"value": "https://formula2024dl.vault.azure.net/"
+		},
+		"ls_adls_covidreportingdl_properties_typeProperties_url": {
+			"value": "https://covidreportingstroredl.dfs.core.windows.net/"
+		},
+		"ls_http_opendata_ecdc_eu ropa_eu_properties_typeProperties_url": {
+			"value": "@{linkedService().SourceBaseURL}"
+		},
+		"ls_zureSqlDatabase_AzureKeyVault_properties_typeProperties_server": {
+			"value": "covidsrproject.database.windows.net"
+		},
+		"ls_zureSqlDatabase_AzureKeyVault_properties_typeProperties_database": {
+			"value": "Demo"
+		},
+		"ls_zureSqlDatabase_AzureKeyVault_properties_typeProperties_userName": {
+			"value": "Chethan_Admin"
+		},
+		"tr_covid_report_properties_typeProperties_scope": {
+			"value": "/subscriptions/a150e348-63a9-4105-ad88-56096e8df33f/resourceGroups/Test_RG/providers/Microsoft.Storage/storageAccounts/covidreportingstroreacc"
+		}
+	}
+}
