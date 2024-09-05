@@ -1,0 +1,9 @@
+{
+	"name": "Formula2025ADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a5aca770-c2c4-46be-9931-19cedfe624f9",
+		"tenantId": "661c6577-b8ca-40d1-842f-48254bea6dcc"
+	}
+}
